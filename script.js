@@ -112,10 +112,6 @@ function selectAnswer(e) {
         button.disabled = true;
         // button.classList.add("correct");
     });
-     // Store response (index of selected button: 0 for True, 1 for False)
-    responses[currentQuestionIndex] = Array.from(answerButtons.children).indexOf(selectBtn);
-    localStorage.setItem('quizResponses', JSON.stringify(responses));
-    localStorage.setItem('quizScore', score);
     nextButton.style.display= "block";
 }
 
@@ -125,10 +121,6 @@ function showScore(){
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
     nextButton.innerHTML ="Play Again";
     nextButton.style.display= "block";
-        // Clear localStorage for a fresh start
-    localStorage.removeItem('quizResponses');
-    localStorage.removeItem('quizCurrentQuestionIndex');
-    localStorage.removeItem('quizScore');
 }
 
 // function to handle next button
@@ -140,8 +132,6 @@ function handleNextButton(){
     else{
         showScore();
     }
-      // Store currentQuestionIndex
-    localStorage.setItem('quizCurrentQuestionIndex', currentQuestionIndex);
 }
 
 
